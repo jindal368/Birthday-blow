@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+           Happy Birthday Triveni 🎉🥳🎉
+        </title>
+        <link rel="stylesheet" href=" https://fonts.googleapis.com/css?family=Anek+Malayalam&display=swap">
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    </head>
+    <style>
+    html, body, canvas {
+    margin:0;
+    padding:0;
+    background:black;
+    text-align:center;
+    position:fixed;
+}
+.para {
+    position:absolute;
+    color: #cccd;
+    font-size:4.5vh;
+    height:75vh;
+    width:86vw;
+    top:15vh;
+    margin:auto;
+    padding: 7vw;
+    line-height:1.5;
+    font-family:"Anek Malayalam", sans-serif;
+}
+.draw {
+    animation:top 5s infinite;
+}
+@keyframes top {
+    from {
+       opacity:1;
+       top:0vh;
+    }
+    to {
+       opacity:0;
+       top:98vh;
+    }
+}
+    </style>
+    <body style="font-family:Dalius;" id="body">
+        <audio controls style=" display:none;" loop   id="a"  >
+            <source src="https://dl.dropbox.com/s/9iuxb2nqkfzryfu/DJ_BoBo_Happy_Birthday.mp3?dl=0">
+        <canvas id="canvas" style="font-family:Sacramento">
+        </canvas>
+        <script>
+            window.addEventListener("mouseover",play);
+window.addEventListener("click",play);
+function play() { document.getElementById("a").play();
+}
+swal({
+  title: "Happy Birthday 🎉🥳🎉",
+  text: "Smile Please 😊😄",
+  icon: "success",
+  closeOnEsc: false,
+  closeOnClickOutside: false
+  }) .then(
+(value)=> {
+
+const canvas = document.querySelector("canvas");
+const resize = () => {
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+}
+
+resize();
+window.addEventListener('resize', resize);
+var ctx = canvas.getContext("2d");
+
+var a = setInterval(function go() {
+    x = Math.floor(Math.random() * (98 - 2 + 1) ) + 2;
+    deg = Math.floor(Math.random() * (358 - 2 + 1) ) + 2;
+    c = "#" + Math.floor(Math.random() * 16777216).toString(16);
+
+  var draw = document.createElement("div");
+  draw.className = "draw";
+  draw.style.top = "0vh";
+  draw.style.left = x + "vw";
+  draw.style.background = c;
+  draw.style.height = "2vh";
+  draw.style.width = "2vw";
+  draw.style.position = "absolute";
+  draw.style.transform = "rotate(" + deg + "deg)";
+  document.body.appendChild(draw);
+  },150)
+  typeWriter();
+ {button:"yes"}
+})
+function typeWriter() {
+    var para = document.createElement("div");
+    para.className = "para";
+    document.body.appendChild(para);
+    
+    var text = "Happy Birthday Triveni 🥳🎉. On you special day I wish all your good wishes come true, today and ever 😄. May you live a long and happy life, and always keep making awesome codes 🙂. The day is all yours... have fun! 😊, and I hope it would be your best birthday ever 🤠💐";
+    var i = 0;
+    write();
+    
+    function write() {
+    if (i < text.length) {
+        para.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(write, 75);
+    }
+  }
+}
+var dr = document.getElementsByClassName("draw");
+setInterval(function () {
+        for (var i = 0; i <= 7; i++) {
+              body.removeChild(dr[0]);
+        }
+  }, 5000)
+        </script>
+    </body>
+</html>
